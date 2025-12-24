@@ -11,6 +11,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the consumer application code into the container at /app
+# LOCAVORA TODO .dockerignore or selective copy to avoid copying unnecessary files
 COPY . .
 
 # Run the consumer application
