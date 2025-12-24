@@ -168,9 +168,15 @@ def flatten_full_on_search_payload_to_provider_map(payload):
 
     bpp_id = get_in(context, ["bpp_id"])
     if bpp_id:
-        bpp_descriptor = get_in(catalog, ["bpp/descriptor"], {})
-        bpp_fulfillments = get_in(catalog, ["bpp/fulfillments"], [])
-        bpp_providers = get_in(catalog, ["bpp/providers"], [])
+        # LOCAVORA CHANGE protocol 1.2.0 - no bpp prefix
+        # WAS:
+        # bpp_descriptor = get_in(catalog, ["bpp/descriptor"], {})
+        # bpp_fulfillments = get_in(catalog, ["bpp/fulfillments"], [])
+        # bpp_providers = get_in(catalog, ["bpp/providers"], [])
+        bpp_descriptor = get_in(catalog, ["descriptor"], {})
+        bpp_fulfillments = get_in(catalog, ["fulfillments"], [])
+        bpp_providers = get_in(catalog, ["providers"], [])
+
 
         for p in bpp_providers:
             p["local_id"] = p.get('id')
@@ -234,7 +240,10 @@ def flatten_incr_on_search_payload_to_provider_map_for_items(payload):
 
     bpp_id = get_in(context, ["bpp_id"])
     if bpp_id:
-        bpp_providers = get_in(catalog, ["bpp/providers"])
+        # LOCAVORA CHANGE protocol 1.2.0 - no bpp prefix
+        # WAS:
+        # bpp_providers = get_in(catalog, ["bpp/providers"])
+        bpp_providers = get_in(catalog, ["providers"])
 
         for p in bpp_providers:
             p["local_id"] = p.get('id')
@@ -259,8 +268,12 @@ def flatten_incr_on_search_payload_to_provider_map_for_offers(payload):
 
     bpp_id = get_in(context, ["bpp_id"])
     if bpp_id:
-        bpp_descriptor = get_in(catalog, ["bpp/descriptor"], {})
-        bpp_providers = get_in(catalog, ["bpp/providers"])
+        # LOCAVORA CHANGE protocol 1.2.0 - no bpp prefix
+        # WAS:
+        # bpp_descriptor = get_in(catalog, ["bpp/descriptor"], {})
+        # bpp_providers = get_in(catalog, ["bpp/providers"])
+        bpp_descriptor = get_in(catalog, ["descriptor"], {})
+        bpp_providers = get_in(catalog, ["providers"])        
 
         for p in bpp_providers:
             p["local_id"] = p.get('id')
@@ -291,7 +304,10 @@ def flatten_incr_on_search_payload_to_provider_map_for_locations(payload):
 
     bpp_id = get_in(context, ["bpp_id"])
     if bpp_id:
-        bpp_providers = get_in(catalog, ["bpp/providers"])
+        # LOCAVORA CHANGE protocol 1.2.0 - no bpp prefix
+        # WAS:
+        # bpp_providers = get_in(catalog, ["bpp/providers"])
+        bpp_providers = get_in(catalog, ["providers"])
 
         for p in bpp_providers:
             p["local_id"] = p.get('id')
@@ -309,7 +325,10 @@ def flatten_incr_on_search_payload_to_providers(payload):
 
     bpp_id = get_in(context, ["bpp_id"])
     if bpp_id:
-        bpp_providers = get_in(catalog, ["bpp/providers"])
+        # LOCAVORA CHANGE protocol 1.2.0 - no bpp prefix
+        # WAS:
+        #  bpp_providers = get_in(catalog, ["bpp/providers"])
+        bpp_providers = get_in(catalog, ["providers"])
 
         for p in bpp_providers:
             p["local_id"] = p.get('id')
